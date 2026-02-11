@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 0
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 21369723}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -1128,7 +1128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 0
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 463759154}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -1547,7 +1547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 0
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 743839578}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -1661,7 +1661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 1
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 877438613}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -2084,7 +2084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 1
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 1055023782}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -2305,7 +2305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 0
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 1131251011}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -2439,7 +2439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 0
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 1217545624}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -2472,7 +2472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 1
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 1219187173}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -2519,7 +2519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 0
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 1239820691}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -2772,9 +2772,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4242657542864175446, guid: 478487cf6300fec47a11ab3d795be258, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1669705595}
-    - targetCorrespondingSourceObject: {fileID: 4242657542864175446, guid: 478487cf6300fec47a11ab3d795be258, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1669705596}
   m_SourcePrefab: {fileID: 100100000, guid: 478487cf6300fec47a11ab3d795be258, type: 3}
 --- !u!1 &1349476312 stripped
 GameObject:
@@ -2798,7 +2795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 0
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 1349476315}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -2867,7 +2864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 1
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 1405435950}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -2887,6 +2884,115 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dangerName: Axe
   dangerDescription: Coupant
+--- !u!1 &1590775743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1590775744}
+  - component: {fileID: 1590775747}
+  - component: {fileID: 1590775746}
+  - component: {fileID: 1590775745}
+  m_Layer: 0
+  m_Name: Top
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1590775744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590775743}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 4.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3928336511004449983}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!64 &1590775745
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590775743}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1590775746
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590775743}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1590775747
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590775743}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1625683308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3092,7 +3198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 0
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 1646875331}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -3155,7 +3261,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Rule: Click on all objects your consider dangerous (Left Click)
+  m_text: 'Rule: Analyze the environment and click on objects you consider hazardous
+    (Left Click).
 
 '
   m_isRightToLeft: 0
@@ -3222,7 +3329,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -241.03198, y: -312.90656, z: -283.85696, w: 321.50763}
+  m_margin: {x: -262.69278, y: -312.90656, z: -314.76065, w: 321.50763}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3294,26 +3401,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 1
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 1669705592}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
   hologramIncorrectPrefab: {fileID: 2153184056082289273, guid: 673545388e2c4784b8f2e679ea74d252, type: 3}
   hologramAnchor: {fileID: 2130186233}
---- !u!114 &1669705596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669705590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffdd9490562ab684691d363e5e8d4742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dangerName: Stool
-  dangerDescription: "On peut tr\xE9bucher"
 --- !u!1 &1739820534
 GameObject:
   m_ObjectHideFlags: 0
@@ -3472,7 +3565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 0
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 1749694473}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -3524,6 +3617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1873887352}
   - component: {fileID: 1873887353}
+  - component: {fileID: 1873887354}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3563,6 +3657,107 @@ MonoBehaviour:
   dangersText: {fileID: 149819624}
   errorsText: {fileID: 621873657}
   feedbackText: {fileID: 1739820536}
+  audioSource: {fileID: 1873887354}
+  correctSound: {fileID: 8300000, guid: c1553d46a655f04448b4e39e6f2b05b9, type: 3}
+  wrongSound: {fileID: 8300000, guid: 156eede6df0cff848889098dbbc71a88, type: 3}
+  endGameSound: {fileID: 8300000, guid: 6015484a8db3d884a9b98a2466d8c332, type: 3}
+--- !u!82 &1873887354
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873887351}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1879981868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3663,7 +3858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a686047c181ea54d88bca46cc43d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDangerous: 0
+  riskData: {fileID: 11400000, guid: 3f9f6573df26e5b40b33cac6b54c6d32, type: 2}
   objectRenderer: {fileID: 1906428336}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   hologramCorrectPrefab: {fileID: 7567510014312856601, guid: 9b8ca443dc7c4594ba9293cfafde7e56, type: 3}
@@ -4141,12 +4336,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6885640037784693122, guid: 86ee7e2b31b112f4eb971e35e59737b2, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1590775744}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6034296479384305868, guid: 86ee7e2b31b112f4eb971e35e59737b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 833594494}
   m_SourcePrefab: {fileID: 100100000, guid: 86ee7e2b31b112f4eb971e35e59737b2, type: 3}
+--- !u!4 &3928336511004449983 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6885640037784693122, guid: 86ee7e2b31b112f4eb971e35e59737b2, type: 3}
+  m_PrefabInstance: {fileID: 3928336511004449982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

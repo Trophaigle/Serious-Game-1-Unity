@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +18,14 @@ public class GameManager : MonoBehaviour
     public TMPro.TextMeshProUGUI errorsText;
     public TMPro.TextMeshProUGUI feedbackText;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
+    public AudioClip endGameSound;
+
+    private HashSet<RiskObjectData> registeredRisks = new HashSet<RiskObjectData>();
+
     void Awake()
     {
         if(Instance != null && Instance != this)
@@ -27,29 +36,17 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    void Start()
+    public void RegisterRisk(RiskObjectData riskData)
     {
-        //count dangers
-        var objects = FindObjectsByType<ObjectBehaviour>(FindObjectsSortMode.None);
-        for(int i = 0; i < objects.Length; i++)
-        {
-            if(objects[i].isDangerous)
-                numberTotalDangers++;
-        }
-        Debug.Log("Total dangers in scene: " + numberTotalDangers);
+        if(riskData.isDangerous)
+         numberTotalDangers++;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
-    public void RegisterAnswer(bool isCorrect, bool wasDangerous)
+    public void RegisterAnswer(RiskObjectData riskData, bool isCorrect)
     {
         if(gameEnded) return;
 
-        if(isCorrect && wasDangerous)
+        if(isCorrect && riskData.isDangerous)
             numberDangerFound++;
 
         if(!isCorrect)
@@ -100,5 +97,6 @@ public class GameManager : MonoBehaviour
         if (feedbackText != null)
             feedbackText.text = "The score values correct identification of dangers while penalizing false alerts, to encourage thoughtful analysis rather than random behavior.";
             
-        }
+        audioSource.PlayOneShot(endGameSound);
+    }
 }

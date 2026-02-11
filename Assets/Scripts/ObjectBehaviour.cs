@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ObjectBehaviour : MonoBehaviour
 {
-    [Header("Danger Info")]
-    [SerializeField] public bool isDangerous;
+    [Header("Risk Data")]
+    public RiskObjectData riskData;
 
     private bool dangerFound = false;
 
@@ -27,32 +27,42 @@ public class ObjectBehaviour : MonoBehaviour
         originalColor = objectRenderer.material.color;
     }
 
+    //object state a faire
+
+    void Start()
+    {
+        GameManager.Instance.RegisterRisk(riskData);
+    }
+
     public void Highlight(bool highlight)
     {
         if(dangerFound) return;
 
-        if(highlight)
-            objectRenderer.material.color = highlightColor;
-        else
-            objectRenderer.material.color = originalColor;
+        objectRenderer.material.color = highlight ? highlightColor : originalColor;
     }
 
     public void ValidateAnswer(bool playerSaysDanger)
     {
-        if (dangerFound)
-            return;
+        if (dangerFound) return;
 
         dangerFound = true;
 
-        bool isCorrect = (playerSaysDanger == isDangerous);
-        
-        if(isCorrect)
-            objectRenderer.material.color = Color.green;
-        else
-            objectRenderer.material.color = Color.red;
-        ShowHologram(isCorrect);
+        bool isCorrect = (playerSaysDanger == riskData.isDangerous);
 
-        GameManager.Instance.RegisterAnswer(isCorrect, isDangerous);
+        objectRenderer.material.color = isCorrect ? Color.green : Color.red;
+
+        ShowHologram(isCorrect);
+        PlayFeedbackSound(isCorrect);
+     
+        GameManager.Instance.RegisterAnswer(riskData, isCorrect);
+    }
+
+    private void PlayFeedbackSound(bool isCorrect)
+    {
+        var audio = GameManager.Instance.audioSource;
+        audio.PlayOneShot(isCorrect 
+        ? GameManager.Instance.correctSound 
+        : GameManager.Instance.wrongSound);
     }
 
     private void ShowHologram(bool isCorrect)
