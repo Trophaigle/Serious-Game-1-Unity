@@ -5,13 +5,13 @@ public class Player : MonoBehaviour
     private IHoverable currentHovered;
     private Collider currentCollider;
 
-void Update()
-{
-    if(GameManager.Instance.CurrentState != GameState.Exploring) return;
+    void Update()
+    {
+        if(GameManager.Instance.CurrentState != GameState.Exploring) return;
 
-        HandleRayCast();
-        HandleClick();
-    }
+            HandleRayCast();
+            HandleClick();
+        }
 
     private void HandleRayCast()
     {

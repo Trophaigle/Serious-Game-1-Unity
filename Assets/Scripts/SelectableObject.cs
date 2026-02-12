@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SelectableObject : MonoBehaviour, IClickable, IHoverable
@@ -9,6 +10,8 @@ public class SelectableObject : MonoBehaviour, IClickable, IHoverable
     public Color hoverColor = Color.yellow;
     public Color successColor = Color.green;
     public Color failColor = Color.red;
+
+    public static event Action<SelectableObject> OnWrongClick;
 
     void Awake()
     {
@@ -51,16 +54,11 @@ public class SelectableObject : MonoBehaviour, IClickable, IHoverable
 
         else
             HandleWrongAnswer(); // Si ce n'est pas un danger, c'est une erreur
-
-        
     }
 
     private void HandleWrongAnswer()
-    {
-        GameManager.Instance.RegisterAnswer(null, false);
+    { 
         SetResult(false);
-        GameManager.Instance.PlayFeedbackSound(false);
-        GameManager.Instance.DisplayFeedbackUI(null);
-        //GameManager.Instance.ShowHologram(transform, false);
+        OnWrongClick?.Invoke(this); // Notifie le GameManager d'une mauvaise réponse 
     }
 }

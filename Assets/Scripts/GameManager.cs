@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         feedbackProvider = feedbackProviderComponent as IFeedbackProvider;
         if (feedbackProvider == null)
              Debug.LogError("Feedback provider must implement IFeedbackProvider");
-             
+
         if(Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
@@ -48,6 +49,34 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    void OnEnable()
+    {
+        ObjectBehaviour.OnRiskIdentified += HandleRiskFound;
+        SelectableObject.OnWrongClick += HandleWrongAnswer;
+    }
+
+    void OnDisable()
+    {
+        ObjectBehaviour.OnRiskIdentified -= HandleRiskFound;
+        SelectableObject.OnWrongClick -= HandleWrongAnswer;
+    }
+
+    private void HandleWrongAnswer(SelectableObject selectableObject)
+    {
+        RegisterAnswer(null, false);
+        PlayFeedbackSound(false); 
+        DisplayFeedbackUI(null); 
+        // ShowHologram(selectableObject.transform, false);
+    }
+
+    private void HandleRiskFound(IRiskSource riskSource)
+    {
+        RegisterAnswer(riskSource.RiskData, true);
+        DisplayFeedbackUI(riskSource.RiskData); 
+        PlayFeedbackSound(true); 
+        // ShowHologram(riskSource as MonoBehaviour, true);
+    }
+       
     public void SetState(GameState newState)
     {
         if(CurrentState == newState)
