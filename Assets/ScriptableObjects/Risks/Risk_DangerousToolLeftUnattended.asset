@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82cfa485eda24cd4f9fc96bc997c44ce, type: 3}
-  m_Name: RiskFallenChair
+  m_Name: Risk_DangerousToolLeftUnattended
   m_EditorClassIdentifier: 
-  riskName: Fallen Stool
+  riskName: Dangerous Tool
   isDangerous: 1
-  explanation: Fallen Stool is Dangerous
+  explanation: Sharp or dangerous tools should never be left unattended in a work
+    area. They can cause serious injuries if handled or knocked over accidentally.

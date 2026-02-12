@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     private int numberTotalDangers;  
     private int wrongAnswers = 0;
     private int numberDangerFound = 0;
-    private bool gameEnded = false;
 
     [Header("UI End Game")]
     public GameObject endGamePanel;
@@ -18,16 +17,29 @@ public class GameManager : MonoBehaviour
     public TMPro.TextMeshProUGUI errorsText;
     public TMPro.TextMeshProUGUI feedbackText;
 
+    [SerializeField] private MonoBehaviour feedbackProviderComponent; //Drag FeedbackUI
+    private IFeedbackProvider feedbackProvider;
+
     [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip correctSound;
     public AudioClip wrongSound;
     public AudioClip endGameSound;
 
-    private HashSet<RiskObjectData> registeredRisks = new HashSet<RiskObjectData>();
+    [Header("Hologram Prefabs")] //au cas ou le outline se voit pas trop
+    public GameObject hologramCorrectPrefab;
+    public GameObject hologramIncorrectPrefab;
+
+    public GameState CurrentState { get; private set; } = GameState.Intro;
+
+    private HashSet<IRiskSource> registeredRisks = new HashSet<IRiskSource>();
 
     void Awake()
     {
+        feedbackProvider = feedbackProviderComponent as IFeedbackProvider;
+        if (feedbackProvider == null)
+             Debug.LogError("Feedback provider must implement IFeedbackProvider");
+             
         if(Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
@@ -36,23 +48,61 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    public void RegisterRisk(RiskObjectData riskData)
+    public void SetState(GameState newState)
     {
-        if(riskData.isDangerous)
-         numberTotalDangers++;
+        if(CurrentState == newState)
+            return;
+
+        CurrentState = newState;
+        Debug.Log("Game State changed to: " + newState);
     }
 
-    public void RegisterAnswer(RiskObjectData riskData, bool isCorrect)
+    public bool IsState(GameState state)
     {
-        if(gameEnded) return;
+        return CurrentState == state;
+    }
 
-        if(isCorrect && riskData.isDangerous)
+    public void RegisterRisk(IRiskSource riskSource)
+    {
+        if (riskSource.RiskData != null && riskSource.RiskData.isDangerous)
+            numberTotalDangers++;
+    }
+
+  public void RegisterAnswer(RiskObjectData riskData, bool isCorrect)
+    {
+        if (IsState(GameState.EndGame))
+            return;
+
+        // Bonne réponse ET vrai danger
+        if (isCorrect && riskData != null && riskData.isDangerous)
             numberDangerFound++;
 
-        if(!isCorrect)
+        // Toute mauvaise réponse est une erreur
+        if (!isCorrect)
             wrongAnswers++;
 
         CheckEndGame();
+    }
+
+    public void DisplayFeedbackUI(RiskObjectData riskData)
+    {
+        if(riskData != null) 
+        {
+            Debug.Log($"Feedback: {riskData.explanation}");
+            feedbackProvider?.ShowFeedback(riskData.explanation, Color.green);
+        } else
+        {
+            Debug.Log("Feedback: This object does not present a safety risk in this context.");
+            feedbackProvider?.ShowFeedback("This object does not present a safety risk in this context.", Color.red);
+        }
+    }
+
+    public void PlayFeedbackSound(bool isCorrect)
+    {
+        var audio = audioSource;
+        audio.PlayOneShot(isCorrect 
+        ? correctSound 
+        : wrongSound);
     }
 
     private void CheckEndGame()
@@ -65,20 +115,26 @@ public class GameManager : MonoBehaviour
 
     void EndGame()
     {
-        gameEnded = true;
+          SetState(GameState.EndGame);
 
-        int scoreBrut = Mathf.Max(0, (numberDangerFound * 10) - (wrongAnswers * 10));
-        int scoreMax = numberTotalDangers * 10;
+        // Base points
+        int pointsPerDanger = 25;  // 4 dangers → 100 max
+        int penaltyPerFalseAlert = 5;
 
-        int note = 0;
-        if (scoreMax > 0)
-            note = Mathf.Clamp(Mathf.RoundToInt((float)scoreBrut / scoreMax * 100f), 0, 100);
+        int scoreBrut = numberDangerFound * pointsPerDanger - wrongAnswers * penaltyPerFalseAlert;
+        int scoreMax = numberTotalDangers * pointsPerDanger;
 
-        Debug.Log("=== FIN DE PARTIE ===");
+        // Bonus prudence : pas de fausse alerte
+        if (wrongAnswers == 0)
+            scoreBrut += 10;
+
+        int note = Mathf.Clamp(Mathf.RoundToInt((float)scoreBrut / scoreMax * 100f), 0, 100);
+
+        Debug.Log("=== END OF GAME ===");
         Debug.Log($"Score : {note} / 100");
         Debug.Log($"Dangers correctly identified : {numberDangerFound} / {numberTotalDangers}");
         Debug.Log($"False alerts : {wrongAnswers}");
-        Debug.Log("The score values correct identification of dangers while penalizing false alerts, to encourage thoughtful analysis rather than random behavior.");
+        Debug.Log("Score rewards correct identification while also encouraging careful decisions.");
 
         // Active le panel
         if (endGamePanel != null)
@@ -89,7 +145,7 @@ public class GameManager : MonoBehaviour
             scoreText.text = $"Score : {note} / 100";
 
         if (dangersText != null)
-            dangersText.text = $"Dangers correclty identified : {numberDangerFound} / {numberTotalDangers}";
+            dangersText.text = $"Risks correctly identified : {numberDangerFound} / {numberTotalDangers}";
 
         if (errorsText != null)
             errorsText.text = $"False alerts : {wrongAnswers}";
@@ -98,5 +154,26 @@ public class GameManager : MonoBehaviour
             feedbackText.text = "The score values correct identification of dangers while penalizing false alerts, to encourage thoughtful analysis rather than random behavior.";
             
         audioSource.PlayOneShot(endGameSound);
+    }
+
+    public void ShowHologram(Transform t, bool isCorrect)
+    {
+        GameObject prefabToSpawn = isCorrect ? hologramCorrectPrefab : hologramIncorrectPrefab;
+        // Récupérer le Renderer du mesh pour connaître ses dimensions
+    Renderer rend = t.GetComponent<Renderer>();
+    if (rend == null)
+    {
+        Debug.LogWarning("No Renderer found on object for hologram positioning.");
+        return;
+    }
+
+    // Calculer la position juste au-dessus du sommet
+    float topY = rend.bounds.max.y; // Y maximal du mesh
+    Vector3 spawnPosition = new Vector3(rend.bounds.center.x, topY, rend.bounds.center.z);
+
+    // Décaler légèrement au-dessus pour que l'hologram ne chevauche pas le mesh
+    spawnPosition += Vector3.up * 0.1f; // 10 cm au-dessus, ajustable
+
+    GameObject hologram = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
     }
 }

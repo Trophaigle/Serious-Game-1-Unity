@@ -2,70 +2,56 @@ using System;
 using NUnit.Framework;
 using UnityEngine;
 
-public class ObjectBehaviour : MonoBehaviour
+public class ObjectBehaviour : MonoBehaviour, IRiskSource
 {
     [Header("Risk Data")]
     public RiskObjectData riskData;
 
     private bool dangerFound = false;
 
-    [Header("Visual")]
-    public Renderer objectRenderer;
-    public Color highlightColor = Color.yellow;
-    private Color originalColor; //couleur d'origine
+    // ===== IRiskSource =====
+    public RiskObjectData RiskData => riskData;
+    public bool IsDangerIdentified => dangerFound;
 
-    [Header("Holograms")]
+   /* [Header("Holograms")]
     public GameObject hologramCorrectPrefab;
     public GameObject hologramIncorrectPrefab;
     public Transform hologramAnchor;
-    private GameObject spawnedHologram;
+    private GameObject spawnedHologram;*/
 
-    void Awake()
+   /* void Awake()
     {
         if(objectRenderer == null)
             objectRenderer = GetComponent<Renderer>();
         originalColor = objectRenderer.material.color;
     }
-
+*/
     //object state a faire
 
     void Start()
     {
-        GameManager.Instance.RegisterRisk(riskData);
+        GameManager.Instance.RegisterRisk(this);
     }
-
-    public void Highlight(bool highlight)
-    {
-        if(dangerFound) return;
-
-        objectRenderer.material.color = highlight ? highlightColor : originalColor;
-    }
-
-    public void ValidateAnswer(bool playerSaysDanger)
+    public void SetRiskFound()
     {
         if (dangerFound) return;
 
         dangerFound = true;
 
-        bool isCorrect = (playerSaysDanger == riskData.isDangerous);
-
-        objectRenderer.material.color = isCorrect ? Color.green : Color.red;
-
-        ShowHologram(isCorrect);
-        PlayFeedbackSound(isCorrect);
+        // feedback visuel
+        SelectableObject selectable = GetComponent<SelectableObject>();
+        if (selectable != null){
+            selectable.SetResult(true);
+            //  ShowHologram(isCorrect);
+            GameManager.Instance.PlayFeedbackSound(true);
      
-        GameManager.Instance.RegisterAnswer(riskData, isCorrect);
+          GameManager.Instance.RegisterAnswer(riskData, true);
+          GameManager.Instance.DisplayFeedbackUI(riskData);
+         // GameManager.Instance.ShowHologram(transform, true); 
+        }
     }
 
-    private void PlayFeedbackSound(bool isCorrect)
-    {
-        var audio = GameManager.Instance.audioSource;
-        audio.PlayOneShot(isCorrect 
-        ? GameManager.Instance.correctSound 
-        : GameManager.Instance.wrongSound);
-    }
-
-    private void ShowHologram(bool isCorrect)
+   /* private void ShowHologram(bool isCorrect)
     {
         if(spawnedHologram != null)
             Destroy(spawnedHologram);
@@ -74,5 +60,5 @@ public class ObjectBehaviour : MonoBehaviour
         spawnedHologram = Instantiate(prefabToSpawn, hologramAnchor.position, Quaternion.identity);
         
         spawnedHologram.transform.SetParent(hologramAnchor);
-    }
+    }*/
 }
