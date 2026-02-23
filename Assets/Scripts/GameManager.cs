@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public GameState CurrentState { get; private set; } = GameState.Intro;
 
-    private HashSet<IRiskSource> registeredRisks = new HashSet<IRiskSource>();
+    //private HashSet<IRiskSource> registeredRisks = new HashSet<IRiskSource>();
 
     void Awake()
     {
